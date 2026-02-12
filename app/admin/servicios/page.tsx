@@ -15,6 +15,8 @@ async function getServices() {
 
 import { getSession } from "@/lib/auth";
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminServicesPage() {
     const services = await getServices();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

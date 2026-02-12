@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/card";
 import { getSession } from "@/lib/auth";
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminSettingsPage() {
     const settings = await getSettings();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -58,6 +58,10 @@ async function getDashboardData() {
     };
 }
 
+}
+
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboard() {
     const data = await getDashboardData();
 
