@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={cn(inter.variable, "antialiased font-sans")}>
+      <body className={cn(inter.variable, "antialiased font-sans overflow-x-hidden")}>
         {children}
       </body>
     </html>
