@@ -58,7 +58,7 @@ async function getDashboardData() {
     };
 }
 
-}
+
 
 export const dynamic = 'force-dynamic';
 
