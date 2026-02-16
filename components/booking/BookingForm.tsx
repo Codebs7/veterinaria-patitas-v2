@@ -9,8 +9,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar as CalendarIcon, Clock } from "lucide-react";
 import { initMercadoPago, Payment } from '@mercadopago/sdk-react';
 
-// Initialize MercadoPago with PUBLIC KEY
-initMercadoPago('TEST-7c1401ed-0935-418c-946b-872363a111ef', { locale: 'es-PE' });
+// Initialize MercadoPago with PUBLIC KEY from env
+initMercadoPago(process.env.NEXT_PUBLIC_MP_PUBLIC_KEY || '', { locale: 'es-PE' });
 
 export function BookingForm({ serviceId, serviceName }: { serviceId: number, serviceName: string }) {
     const [state, formAction, isPending] = useActionState(createBooking, null);
