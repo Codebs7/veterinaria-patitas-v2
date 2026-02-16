@@ -70,6 +70,8 @@ export async function createBooking(prevState: any, formData: FormData) {
         // 2. Create MercadoPago Preference
         const preference = new Preference(client);
 
+        const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://veterinaria-patitas-v2.vercel.app';
+
         const result = await preference.create({
             body: {
                 items: [
@@ -77,7 +79,7 @@ export async function createBooking(prevState: any, formData: FormData) {
                         id: String(data.serviceId),
                         title: newBooking.service?.name || "Servicio Veterinario",
                         quantity: 1,
-                        unit_price: price,
+                        unit_price: Number(price.toFixed(2)),
                         currency_id: 'PEN',
                     }
                 ],
@@ -89,9 +91,9 @@ export async function createBooking(prevState: any, formData: FormData) {
                     }
                 },
                 back_urls: {
-                    success: "http://localhost:3000/reservas/confirmacion",
-                    failure: "http://localhost:3000/reservas/fallo",
-                    pending: "http://localhost:3000/reservas/pendiente"
+                    success: `${appUrl}/reservas/confirmacion`,
+                    failure: `${appUrl}/reservas/fallo`,
+                    pending: `${appUrl}/reservas/pendiente`
                 },
                 external_reference: String(newBooking.id), // Link Payment to Booking ID
             }
@@ -173,7 +175,7 @@ export async function processPayment(paymentData: any) {
         const { transaction_amount, token, description, installments, payment_method_id, issuer_id, payer } = formData;
 
         // Ensure transaction_amount is a valid number and greater than 0
-        const amount = Number(transaction_amount);
+        const amount = Number(Number(transaction_amount).toFixed(2));
         if (isNaN(amount) || amount <= 0) {
             console.error("Invalid amount detected:", transaction_amount);
             throw new Error(`Monto de transacción inválido: ${transaction_amount}`);
