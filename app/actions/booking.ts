@@ -163,23 +163,35 @@ export async function processPayment(paymentData: any) {
     const payment = new Payment(client);
 
     try {
-        console.log("Received Payment Data:", paymentData); // Log incoming data
         const { formData, external_reference } = paymentData;
+        console.log("Full Payment Data:", JSON.stringify(paymentData, null, 2));
+
+        if (!formData) {
+            throw new Error("No se recibió información del formulario de pago (formData is missing)");
+        }
+
         const { transaction_amount, token, description, installments, payment_method_id, issuer_id, payer } = formData;
+
+        // Ensure transaction_amount is a valid number and greater than 0
+        const amount = Number(transaction_amount);
+        if (isNaN(amount) || amount <= 0) {
+            console.error("Invalid amount detected:", transaction_amount);
+            throw new Error(`Monto de transacción inválido: ${transaction_amount}`);
+        }
 
         const response = await payment.create({
             body: {
-                transaction_amount: Number(transaction_amount),
+                transaction_amount: amount,
                 token,
-                description,
-                installments: Number(installments),
+                description: description || "Pago Servicio Veterinario",
+                installments: Number(installments) || 1,
                 payment_method_id,
                 issuer_id,
                 payer: {
                     email: payer.email,
-                    identification: payer?.identification // Restore identification if present in paymentData
+                    identification: payer?.identification
                 },
-                external_reference
+                external_reference: String(external_reference)
             }
         });
 
