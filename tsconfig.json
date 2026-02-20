@@ -35,7 +35,9 @@
     "components/**/*.ts",
     "components/**/*.tsx",
     "lib/**/*.ts",
-    "scripts/**/*.ts"
+    "scripts/**/*.ts",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",

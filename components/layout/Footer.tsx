@@ -97,13 +97,18 @@ export function Footer() {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="mt-12 pt-8 border-t border-teal-800/50 text-center text-sm text-teal-400/60 hover:text-white transition-colors duration-500 cursor-default"
+                    className="mt-12 pt-8 border-t border-teal-800/50 pb-20 md:pb-0"
                 >
-                    <p className="flex items-center justify-center gap-1 group">
-                        &copy; {new Date().getFullYear()} Veterinaria Patitas. Hecho con
-                        <span className="inline-block animate-pulse text-red-500 group-hover:scale-125 transition-transform duration-300">❤️</span>
-                        para las mascotas.
-                    </p>
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center text-sm text-teal-400/60">
+                        <p className="flex items-center gap-1 group whitespace-normal md:whitespace-nowrap">
+                            &copy; {new Date().getFullYear()} Veterinaria Patitas. Hecho con
+                            <span className="inline-block animate-pulse text-red-500 group-hover:scale-125 transition-transform duration-300">❤️</span>
+                            para las mascotas.
+                        </p>
+                        <p className="hover:text-white transition-colors duration-500 cursor-default">
+                            Creado por Codebs
+                        </p>
+                    </div>
                 </motion.div>
             </div>
         </footer>

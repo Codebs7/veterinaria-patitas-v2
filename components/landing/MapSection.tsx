@@ -69,7 +69,7 @@ export function MapSection() {
                     allowFullScreen={true}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    className="grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
+                    className="group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
                 ></iframe>
                 {/* Overlay hint */}
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity duration-500" />

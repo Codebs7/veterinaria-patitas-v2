@@ -61,10 +61,11 @@ export function Navbar() {
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden text-foreground"
+                    className="md:hidden p-2 -mr-2 text-foreground hover:bg-primary/10 rounded-lg transition-colors"
                     onClick={() => setIsOpen(!isOpen)}
+                    aria-label="Toggle menu"
                 >
-                    {isOpen ? <X /> : <Menu />}
+                    {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
             </div>
 
