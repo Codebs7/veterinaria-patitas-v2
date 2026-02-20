@@ -23,7 +23,7 @@ async function main() {
     })
 
     // 2. Create Staff User
-    const staffPassword = await hashPassword("Staffpro182");
+    const staffPassword = await hashPassword("PatitasStaff2024");
     console.log("Staff password hash generated.");
 
     const staff = await prisma.user.upsert({
