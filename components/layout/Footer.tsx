@@ -97,17 +97,19 @@ export function Footer() {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="mt-12 pt-8 border-t border-teal-800/50 pb-20 md:pb-0"
+                    className="mt-12 pt-8 border-t border-teal-800/50 pb-24 md:pb-8"
                 >
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center text-sm text-teal-400/60">
-                        <p className="flex items-center gap-1 group whitespace-normal md:whitespace-nowrap">
-                            &copy; {new Date().getFullYear()} Veterinaria Patitas. Hecho con
-                            <span className="inline-block animate-pulse text-red-500 group-hover:scale-125 transition-transform duration-300">❤️</span>
-                            para las mascotas.
-                        </p>
-                        <p className="hover:text-white transition-colors duration-500 cursor-default">
-                            Creado por Codebs
-                        </p>
+                    <div className="flex flex-col items-center justify-center gap-6 text-center text-sm text-teal-400/60 transition-colors duration-500">
+                        <div className="flex flex-col items-center gap-2">
+                            <p className="flex items-center justify-center gap-1 group">
+                                &copy; {new Date().getFullYear()} Veterinaria Patitas. Hecho con
+                                <span className="inline-block animate-pulse text-red-500 group-hover:scale-125 transition-transform duration-300">❤️</span>
+                                para las mascotas.
+                            </p>
+                            <p className="hover:text-white transition-colors duration-500 cursor-default font-medium">
+                                Creado por Codebs
+                            </p>
+                        </div>
                     </div>
                 </motion.div>
             </div>
