@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
-export const dynamic = 'force-dynamic';
+// Permite que la página se cacheé y se actualice cada 60 segundos (ISR)
+export const revalidate = 60;
 
 import {
     Card,
