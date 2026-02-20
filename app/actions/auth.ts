@@ -23,8 +23,14 @@ export async function loginAction(prevState: any, formData: FormData) {
 
         const { username, password } = result.data;
 
-        const user = await prisma.user.findUnique({
-            where: { username },
+        // Buscamos el usuario ignorando si escribió en mayúsculas o minúsculas
+        const user = await prisma.user.findFirst({
+            where: {
+                username: {
+                    equals: username,
+                    mode: 'insensitive'
+                }
+            },
         });
 
         if (!user) {
